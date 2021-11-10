@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Loja_de_Produtos
+{
+    abstract class Produto
+    {
+       
+        public string Nome { get; set; } //declarando variaveis
+        public double Preco { get; set; }
+
+      
+        public Produto() { }  //Construtor
+        public Produto(string nome, double preco)
+        {
+            Nome = nome;
+            Preco = preco;
+        }
+
+       
+        public override string ToString() //usando to string para etiquetas 
+        {
+            return Nome + " - " + Preco;
+        }
+    }
+}
