@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Loja_de_Produtos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            Console.WriteLine("Digite o numero de produtos a ser registrado: "); //Interaçao com usuario
+            int x = int.Parse(Console.ReadLine());
+
+           
+            Produto[] vect = new Produto[x + 1]; //Criando vetor
+
+            for (int i = 1; i < x + 1; i++)
+            {
+              
+                Console.WriteLine("===================================");  //Informações dos produtos
+                Console.WriteLine($"Produto#{i}");
+                Console.WriteLine("Comum, Usado ou Importado (c/u/i)? ");
+                string tipo = Console.ReadLine();
+                Console.WriteLine("Nome: ");
+                string nome = Console.ReadLine();
+                Console.WriteLine("Preço: ");
+                double preco = double.Parse(Console.ReadLine());
+
+                if (tipo == "i" || tipo == "I")
+                {
+                  
+                    Console.WriteLine("Taxa: ");  //Interaçao com usuario
+                    double taxa = double.Parse(Console.ReadLine());
+                    //Adicionando o produto importado ao vetor
+                    vect[i] = new Importado(nome, preco, taxa);
+
+                }
+                if (tipo == "u" || tipo == "U")
+                {
+                   
+                    Console.WriteLine("Fabricação: "); //Interaçao com usuario
+                    DateTime fabricacao = DateTime.Parse(Console.ReadLine());
+                    //colocando o produto usado ao vetor
+                    vect[i] = new Usado(nome, preco, fabricacao);
+
+                }
+                if (tipo == "c" || tipo == "C")
+                {
+                   
+                    vect[i] = new Comum(nome, preco); //colocando produto em vetor
+
+                }
+
+            }
+           
+            Console.WriteLine("==================================="); //Formatando
+            Console.WriteLine("");
+
+         
+            Console.WriteLine("Etiquetas: ");//printando
+            for (int i = 0; i < x + 1; i++)
+            {
+                if (vect[i] != null)
+                {
+                    Console.WriteLine(vect[i]);
+                }
+            }
+         
+        }
+    }
+}
