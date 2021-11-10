@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Loja_de_Produtos
+{
+    class Usado : Produto
+    {
+        
+        public DateTime Fabricacao { get; set; }//declarando variaveis
+
+      
+        public Usado() { }  //Construtores
+        public Usado(string nome, double preco, DateTime fabricacao) : base(nome, preco)
+        {
+            Nome = nome;
+            Preco = preco;
+            Fabricacao = fabricacao;
+        }
+       
+        public override string ToString()
+        {
+            return Nome + " - " + Preco + " - " + $"(fabricado: {Fabricacao.ToString("dd/MM/yyyy")})";
+        }
+
+    }
+}
