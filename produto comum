@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Loja_de_Produtos
+{
+    class Comum : Produto
+    {
+        
+        public Comum() { }//Construtor
+        public Comum(string nome, double preco)
+        {
+            Nome = nome;
+            Preco = preco;
+        }
+        public override string ToString()
+        {
+            return Nome + " - " + Preco;
+        }
+    }
+}
