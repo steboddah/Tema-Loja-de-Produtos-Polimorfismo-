@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Loja_de_Produtos
+{
+    class Importado : Produto
+    {
+
+      
+        public double Taxa { get; set; }  //declarando variaveis
+       
+        public Importado() { } //Construtor
+        public Importado(string nome, double preco, double taxa) : base(nome, preco)
+        {
+            Nome = nome;
+            Preco = preco;
+            Taxa = taxa;
+        }
+      
+        public override string ToString()
+        {
+            return Nome + " - " + Preco + " - " + $"(Taxa: {Taxa})";
+        }
+    }
+}
